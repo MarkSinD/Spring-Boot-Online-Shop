@@ -1,4 +1,4 @@
-package com.shopme.shopmebackend;
+package com.shopme.backend.shopmebackend;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
     @GetMapping("/")
     public String viewHome(){
-        System.out.println("YES!");
         return "index";
     }
 }
