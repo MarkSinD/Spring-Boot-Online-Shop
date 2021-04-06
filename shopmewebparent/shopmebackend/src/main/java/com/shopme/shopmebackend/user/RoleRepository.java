@@ -1,4 +1,4 @@
-package com.shopme.backend.shopmebackend.user;
+package com.shopme.shopmebackend.user;
 
 import com.shopme.common.entity.Role;
 import org.springframework.data.repository.CrudRepository;
