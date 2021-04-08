@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -16,6 +17,7 @@ import java.util.NoSuchElementException;
  * @version 1.0
  */
 @Service
+@Transactional
 public class UserService {
 
     @Autowired
@@ -35,7 +37,7 @@ public class UserService {
         return (List<Role>) roleRepository.findAll();
     }
 
-    public void save(User user) {
+    public User save(User user) {
         boolean isUpdatingUser = (user.getId() != null);
         if(isUpdatingUser){
             User existingUser = userRepository.findById(user.getId()).get();
@@ -49,7 +51,7 @@ public class UserService {
             encodePassword(user);
         }
 
-        userRepository.save(user);
+        return userRepository.save(user);
     }
 
     private void encodePassword(User user){
@@ -60,14 +62,22 @@ public class UserService {
     public boolean isEmailUnique(Integer id, String email){
         User userByEmail = userRepository.getUserByEmail(email);
 
-        if( id != null && userByEmail == null)
+        if( id != null && userByEmail == null) {
+            System.out.println("EmailUnique : " +  1);
             return true;
-        else if( id != null && userByEmail != null)
-            return false;
-        else if( id == null && userByEmail != null)
-            return false;
-        else if(id == null && userByEmail == null)
+        }
+        else if( id != null && userByEmail != null) {
+            System.out.println("EmailUnique : " +  2);
             return true;
+        }
+        else if( id == null && userByEmail != null) {
+            System.out.println("EmailUnique : " +  3);
+            return false;
+        }
+        else if(id == null && userByEmail == null) {
+            System.out.println("EmailUnique : " +  4);
+            return true;
+        }
         return false;
     }
 
@@ -87,4 +97,9 @@ public class UserService {
 
         userRepository.deleteById(id);
     }
+
+    public void updateUserEnabledStatus(Integer id, boolean enabled){
+        userRepository.updateEnabledStatus(id, enabled);
+    }
+
 }
