@@ -1,0 +1,13 @@
+2021-04-18 19:43:39.152 ERROR 13188 --- [http-nio-8080-exec-1] com.shopme.shopmebackend.FileUploadUtil  : Could not list directory: ..\category-images\9
+2021-04-18 19:43:51.267  INFO 13188 --- [http-nio-8080-exec-7] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 19:43:51.268  INFO 13188 --- [http-nio-8080-exec-7] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 19:43:53.169  INFO 13188 --- [http-nio-8080-exec-5] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 19:43:53.169  INFO 13188 --- [http-nio-8080-exec-5] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 19:43:53.855  INFO 13188 --- [http-nio-8080-exec-10] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 19:43:53.855  INFO 13188 --- [http-nio-8080-exec-10] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 19:44:57.354  INFO 13188 --- [http-nio-8080-exec-3] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 19:44:57.354  INFO 13188 --- [http-nio-8080-exec-3] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 19:46:44.181  INFO 13188 --- [Thread-79] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 19:46:44.181  INFO 13188 --- [Thread-79] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 19:46:44.182  INFO 13188 --- [Thread-79] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
+2021-04-18 19:46:44.189  INFO 13188 --- [Thread-79] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.

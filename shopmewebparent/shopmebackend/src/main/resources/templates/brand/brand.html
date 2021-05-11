@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments :: page_head('Brands - Shopme Admin', 'none')">
+</head>
+<body>
+<div class = "container-fluid">
+    <div th:replace="navigation :: menu"> </div>
+    <div class="text-left">
+        <h2> Manage Brands </h2>
+        <a th:href="@{/brands/new}" class="fas fa-user-plus fa-2x icon-dark mr-2"></a>
+        <a th:href="@{/brands/export/csv}" class="fas fa-file-csv fa-2x icon-dark mr-2"></a>
+        <a th:href="@{/brands/export/excel}" class="fas fa-file-excel fa-2x icon-dark mr-2"></a>
+        <a th:href="@{/brands/export/pdf}" class="fas fa-file-pdf fa-2x icon-dark mr-2"></a>
+    </div>
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+
+    <div th:replace="fragments :: search_form('brands')"></div>
+
+    <div class="full-details">
+        <table class="table table-bordered table-striped table-hover table-responsive-lg">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="hideable-column">
+                        <div th:replace="fragments :: column_link('brands', 'id', 'id', 'tag')"></div>
+                    </th>
+
+                    <th>logo</th>
+
+                    <th class="hideable-column">
+                        <div th:replace="fragments :: column_link('brands', 'name', 'brand name', 'tag')"></div>
+                    </th>
+
+                    <th th:replace="fragments :: column_link('brands', 'categories', 'categories', 'none')"></th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="element : ${listBrands}">
+                    <td class="hideable-column"> [[${element.id}]] </td>
+                    <td>
+                        <img th:src="@{${element.imagePath}}" style="width: 100px" class="img-fluid"/>
+                    </td>
+                    <td class="hideable-column"> [[${element.name}]] </td>
+                    <td>
+                        <th:block th:each="category : ${element.categorySet}">
+                            <span class="badge badge-secondary" th:text="${category}"></span>
+                        </th:block>
+                    </td>
+                    <td>
+                        <a class="fas fa-edit fa-2x icon-green" th:href="@{'/brands/edit/' + ${element.id}}" title="Edit"></a>
+                        &nbsp;
+                        <a class="fas fa-trash fa-2x icon-red link-delete" th:href="@{'/brands/delete/' + ${element.id}}" th:elementId="${element.id}" title="Delete"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="less-details">
+        <div th:each="element : ${listBrands}" class="row m-1">
+            <div class="col-4">
+                <span th:if="${element.logo == null}" class="fas fa-portrait fa-3x icon-silver"></span>
+                <img th:if="${element.logo != null}" th:src="@{${element.imagePath}}" style="width: 100px"/>
+            </div>
+            <div class="col-8">
+                <div>[[${element.name}]]</div>
+                <div th:each="category : ${element.categorySet}" class="badge badge-secondary">
+                    <div>[[${category}]]</div>
+                </div>
+                <div class="mt-2">
+                    <td>
+                        <a class="fas fa-edit fa-2x icon-green" th:href="@{'/brands/edit/' + ${element.id}}" title="Edit"></a>
+                        &nbsp;
+                        <a class="fas fa-trash fa-2x icon-red link-delete" th:href="@{'/brands/delete/' + ${element.id}}" th:elementId="${element.id}" title="Delete"></a>
+                    </td>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+        </div>
+    </div>
+
+    <div th:replace="modal_fragments :: modal_dialog"></div>
+    <div th:replace="fragments :: footer"></div>
+
+</div>
+
+<script th:src="@{/js/common_list.js}"></script>
+<script type="text/javascript">
+    moduleURL = "[[@{/brands}]]";
+    $(document).ready(function () {
+        $(".link-delete").on("click", function (e) {
+            e.preventDefault();
+            link = $(this);
+            showDeleteConfirmModal( $(this), 'brand');
+        });
+    });
+</script>
+
+</body>
+</html>

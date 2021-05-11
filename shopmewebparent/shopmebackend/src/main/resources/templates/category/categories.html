@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments :: page_head('Categories - Shopme Admin', 'none')">
+</head>
+<body>
+<div class = "container-fluid">
+    <div th:replace="navigation :: menu"> </div>
+    <div class="text-left">
+        <h2> Manage Category </h2>
+        <a th:href="@{/categories/new}" class="fas fa-user-plus fa-2x icon-dark mr-2"></a>
+        <a th:href="@{/categories/export/csv}" class="fas fa-file-csv fa-2x icon-dark mr-2"></a>
+        <a th:href="@{/categories/export/excel}" class="fas fa-file-excel fa-2x icon-dark mr-2"></a>
+        <a th:href="@{/categories/export/pdf}" class="fas fa-file-pdf fa-2x icon-dark mr-2"></a>
+    </div>
+
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+
+    <div th:replace="fragments :: search_form('categories')"></div>
+
+    <div class="full-details">
+        <table class="table table-bordered table-striped table-hover table-responsive-lg">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="hideable-column">
+                        <div th:replace="fragments :: column_link('categories', 'id', 'id', 'tag')"></div>
+                    </th>
+
+                    <th>image</th>
+
+                    <th class="hideable-column">
+                        <div th:replace="fragments :: column_link('categories', 'name', 'category name', 'tag')"></div>
+                    </th>
+
+                    <th th:replace="fragments :: column_link('categories', 'alias', 'alias', 'none')"></th>
+                    <th th:replace="fragments :: column_link('categories', 'enabled', 'enable', 'none')"></th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="element : ${listCategory}">
+                    <td class="hideable-column"> [[${element.id}]] </td>
+                    <td>
+                        <img th:src="@{${element.imagePath}}" style="width: 100px" class="img-fluid"/>
+                    </td>
+                    <td class="hideable-column"> [[${element.name}]] </td>
+                    <td> [[${element.alias}]] </td>
+                    <td>
+                        <div th:replace="fragments :: element_status('categories')"></div>
+                    </td>
+                    <td>
+                        <div th:replace="fragments :: element_actions('categories')"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="less-details">
+        <div th:each="element : ${listCategory}" class="row m-1">
+            <div class="col-4">
+                <span th:if="${element.image == null}" class="fas fa-portrait fa-3x icon-silver"></span>
+                <img th:if="${element.image != null}" th:src="@{${element.imagePath}}" style="width: 100px"/>
+            </div>
+            <div class="col-8">
+                <div>[[${element.name}]]</div>
+                <div>[[${element.alias}]]</div>
+                <div class="mt-2">
+                    <div th:replace="fragments :: element_status('categories')"></div>
+                    &nbsp;
+                    <div th:replace="fragments :: element_status('categories')"></div>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+        </div>
+    </div>
+
+    <div th:if="${keyword != null}" class="text-center">
+        <span>Search result does not show categories in hierarchical form</span>
+        <div th:replace="fragments :: pagination('categories', 'Сategories')"></div>
+
+    </div>
+
+    <th:block th:unless="${keyword!=null}">
+        <div th:replace="fragments :: pagination('categories', 'Сategories')"></div>
+    </th:block>
+
+    <div th:replace="modal_fragments :: modal_dialog"></div>
+    <div th:replace="fragments :: footer"></div>
+
+</div>
+
+<script th:src="@{/js/common_list.js}"></script>
+<script type="text/javascript">
+    moduleURL = "[[@{/categories}]]";
+    $(document).ready(function () {
+        $(".link-delete").on("click", function (e) {
+            e.preventDefault();
+            link = $(this);
+            showDeleteConfirmModal( $(this), 'category');
+        });
+    });
+</script>
+
+</body>
+</html>

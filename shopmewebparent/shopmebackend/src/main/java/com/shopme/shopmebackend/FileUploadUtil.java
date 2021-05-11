@@ -1,8 +1,8 @@
 package com.shopme.shopmebackend;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
 import java.io.IOException;
 
 import java.io.InputStream;
@@ -18,17 +18,13 @@ import java.nio.file.StandardCopyOption;
  * @version 1.0
  */
 public class FileUploadUtil {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FileUploadUtil.class);
+
     public static void saveFile(String uploadDir, String fileName, MultipartFile multipartFile) throws IOException {
         Path uploadPath = Paths.get(uploadDir);
-
         if(!Files.exists(uploadPath)){
             Files.createDirectories(uploadPath);
         }
-
-        System.out.println(uploadPath.toString());
-        System.out.println(Files.exists(uploadPath));
-
-
         try(InputStream inputStream = multipartFile.getInputStream()){
             Path filePath = uploadPath.resolve(fileName);
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
@@ -45,12 +41,23 @@ public class FileUploadUtil {
                     try{
                         Files.delete(file);
                     } catch (IOException e) {
-                        System.out.println("Could not delete file : " + file);
+                        LOGGER.error("Could not delete file : " + file);
+                        // System.out.println("Could not delete file : " + file);
                     }
                 }
             });
         }catch (IOException ex){
-            System.out.println("Could not list directory: " + dirPath);
+            LOGGER.error("Could not list directory: " + dirPath);
+            // System.out.println("Could not list directory: " + dirPath);
+        }
+    }
+
+    public static void removeDir(String categoryDir) {
+        cleanDir(categoryDir);
+        try{
+            Files.delete(Paths.get(categoryDir));
+        } catch (IOException e) {
+            LOGGER.error("Could not remove directory : " + categoryDir);
         }
     }
 }

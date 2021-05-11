@@ -3,3 +3,23 @@
 *.icon-green {color: green}
 *.icon-dark {color: gray}
 *.icon-red {color: red}
+
+@media screen and (max-width: 768px) {
+    div.full-details{display: none}
+    div.less-details{display: block}
+    /* small screen */
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    div.full-details{display: block}
+    div.less-details{display: none}
+    .hideable-column { display: none}
+    /* medium screen */
+}
+
+@media screen and (min-width: 1024px){
+    div.less-details{display: none}
+    .hideable-column { display: table-cell}
+
+    /* big screen */
+}

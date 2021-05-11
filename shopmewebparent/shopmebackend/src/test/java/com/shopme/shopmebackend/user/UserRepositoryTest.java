@@ -9,6 +9,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.annotation.Rollback;
 
 
@@ -22,7 +25,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
  * @author Mark Sinakaev
  * @version 1.0
  */
-@DataJpaTest
+@DataJpaTest(showSql = false)
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 public class UserRepositoryTest {
@@ -118,6 +121,30 @@ public class UserRepositoryTest {
     public void testEnableUser(){
         Integer id = 31;
         repository.updateEnabledStatus(id, true);
+    }
+
+    @Test
+    public void testListFirstPage(){
+        int pageNumber = 1;
+        int pageSize = 4;
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        Page<User> page = repository.findAll(pageable);
+        List<User> listUsers = page.getContent();
+        listUsers.forEach(System.out::println);
+        assertThat(listUsers.size()).isEqualTo(pageSize);
+    }
+
+    @Test
+    public void testSearchUsers(){
+        String keyword = "Bruce";
+        int pageNumber = 0;
+        int pageSize = 4;
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        Page<User> page = repository.findAll(keyword, pageable);
+        List<User> listUsers = page.getContent();
+        System.out.println("List : ");
+        listUsers.forEach(System.out::println);
+        assertThat(listUsers.size()).isGreaterThan(0);
     }
 
 }

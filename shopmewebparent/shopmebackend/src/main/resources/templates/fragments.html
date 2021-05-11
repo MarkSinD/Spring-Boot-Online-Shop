@@ -1,10 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:fragment="page_head(title, remove)" th:remove="${remove}">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>[[${title}]]</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fontawesome/all.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" ></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/common.js}" ></script>
+
 </head>
 <body>
-$END$
+
+    <div th:fragment="footer" class="text-center m-3">
+        <p> Shopme Control Panel - Copyright &copy; Shopme</p>
+    </div>
+
+    <th th:fragment="column_link(table, fieldName, columnLabel, removeTag)" th:remove="${removeTag}">
+        <a class="text-white" th:href="@{'/' + ${table} + '/page/' + ${currentPage} + '?sortField=' + ${fieldName} +'&sortDir=' + ${sortField != fieldName ? sortDir : reverseSortDir} +'&keyword='+ ${keyword != null ? keyword : ''} + ${categoryId != null ? '&categoryId=' + categoryId : ''}}">[[${columnLabel}]]</a>
+        <span th:if="${sortField == fieldName}" th:class="${sortDir == 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}"></span>
+    </th>
+
+    <th th:fragment="pagination_link(table, pageNumber, pageName)">
+        <a class="page-link" th:href="@{'/' + ${table} + '/page/' + ${pageNumber} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} +'&keyword='+ ${keyword != null ? keyword : ''} + ${categoryId != null ? '&categoryId=' + categoryId : ''}}">[[${pageName}]]</a>
+    </th>
+
+    <div th:fragment="element_photos" th:remove="tag">
+        <span th:if="${element.photos == null}" class="fas fa-portrait fa-3x icon-silver"></span>
+        <img th:if="${element.photos != null}" th:src="@{${element.photosImagePath}}" style="width: 100px">
+    </div>
+
+    <div th:fragment="element_status(table)" th:remove="tag">
+        <a th:if="${element.enabled == true}" class="fas fa-check-circle fa-2x icon-green" th:href="@{'/' + ${table} + '/' + ${element.id} + '/enabled/false'}" title="Disable"></a>
+        <a th:if="${element.enabled == false}" class="fas fa-circle fa-2x icon-dark" th:href="@{'/' + ${table} + '/' + ${element.id} + '/enabled/true'}" title="Enable"></a>
+    </div>
+
+    <div th:fragment="element_edit(table)" th:remove="tag">
+        <a class="fas fa-edit fa-2x icon-green" th:href="@{'/' + ${table} + '/edit/' + ${element.id}}" title="Edit"></a>
+    </div>
+
+    <div th:fragment="element_delete(table)" th:remove="tag">
+        <a class="fas fa-trash fa-2x icon-red link-delete" th:href="@{'/' + ${table} + '/delete/' + ${element.id}}" th:elementId="${element.id}" title="Delete"></a>
+    </div>
+
+    <div th:fragment="element_actions(table)" th:remove="tag">
+        <a class="fas fa-edit fa-2x icon-green" th:href="@{'/' + ${table} + '/edit/' + ${element.id}}" title="Edit"></a>
+        &nbsp;
+        <th:block th:if="${element.hasChildren == false}">
+            <a  class="fas fa-trash fa-2x icon-red link-delete" th:href="@{'/' + ${table} + '/delete/' + ${element.id}}" th:elementId="${element.id}" title="Delete"></a>
+        </th:block>
+    </div>
+
+    <div th:fragment="pagination(table, title)" th:remove="tag">
+        <div class="text-center m-1" th:if="${totalItems > 0}">
+            <span> Showing [[${title}]] # [[${startCount}]] to [[${endCount}]] of [[${totalItems}]] </span>
+        </div>
+        <div class="text-center m-1" th:if="${totalItems == 0}">
+            <span> No [[${title}]] found </span>
+        </div>
+
+        <div th:if="${totalItems > 1}">
+            <nav>
+                <ul class="pagination justify-content-center flex-wrap">
+                    <li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
+                        <th th:replace="fragments :: pagination_link(${table}, 1, First)"></th>
+                    </li>
+                    <li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
+                        <th th:replace="fragments :: pagination_link(${table}, ${currentPage - 1}, Previous)"></th>
+                    </li>
+
+                    <li th:class="${currentPage != i ? 'page-item' : 'page-item active' }" th:each="i : ${#numbers.sequence(1, totalPages)}">
+                        <th th:replace="fragments :: pagination_link(${table}, ${i}, ${i})"></th>
+                    </li>
+
+                    <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+                        <th th:replace="fragments :: pagination_link(${table}, ${currentPage + 1}, Next)"></th>
+                    </li>
+
+                    <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+                        <th th:replace="fragments :: pagination_link(${table}, ${totalPages}, Last)"></th>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div th:fragment="search_form(table)">
+        <form th:action="@{'/' + ${table} +  '/page/1'}" class="form-inline m-3">
+            <input type="hidden" name="sortField" th:value="${sortField}">
+            <input type="hidden" name="sortDir" th:value="${sortDir}">
+            Filter:&nbsp;
+            <input type="search" name="keyword" th:value="${keyword}" class="form-control" required/>
+            &nbsp;&nbsp;
+            <button type="submit" class="btn btn-primary fas fa-search"></button>
+            &nbsp;&nbsp;
+            <button type="button" class="btn btn-secondary fas fa-eraser" onclick="clearFilter()"></button>
+        </form>
+    </div>
 </body>
 </html>

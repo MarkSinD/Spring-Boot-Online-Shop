@@ -1,0 +1,539 @@
+2021-04-18 11:56:22.906 ERROR 10472 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/ShopmeAdmin] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [categories], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [categories], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.12.RELEASE.jar:3.0.12.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.44.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.44.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:67) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:101) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:218) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_271]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_271]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_271]
+
+2021-04-18 11:56:54.241  INFO 10472 --- [Thread-23] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 11:56:54.244  INFO 10472 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 11:56:54.245  INFO 10472 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2021-04-18 11:56:54.250  INFO 10472 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2021-04-18 11:56:54.477  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 11:56:54.477  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 11:56:54.784  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 11:56:54.805  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
+2021-04-18 11:56:54.985  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 11:56:54.985  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 11:56:54.986  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 11:56:55.000  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 11:56:55.000  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 519 ms
+2021-04-18 11:56:55.017  WARN 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [D8C3F861A7940E7121A65443E30DD360]
+2021-04-18 11:56:55.055  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 11:56:55.060  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-04-18 11:56:55.074  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-04-18 11:56:55.074  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 11:56:55.152  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 11:56:55.153  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 11:56:55.168  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 11:56:55.257  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 11:56:55.303  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 11:56:55.303  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 11:56:55.303  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 11:56:55.310  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@baee275, org.springframework.security.web.context.SecurityContextPersistenceFilter@5cf5c3f5, org.springframework.security.web.header.HeaderWriterFilter@3d8b32c3, org.springframework.security.web.csrf.CsrfFilter@45dd763c, org.springframework.security.web.authentication.logout.LogoutFilter@38be4f64, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@28cf1d0a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@659b8c2e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@162a774, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@2505d775, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4bd2d59d, org.springframework.security.web.session.SessionManagementFilter@72373719, org.springframework.security.web.access.ExceptionTranslationFilter@50cd3346, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@25aca207]
+2021-04-18 11:56:55.347  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 11:56:55.370  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 11:56:55.566  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 11:56:55.568  INFO 10472 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-18 11:56:55.569  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-18 11:56:55.571  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-18 11:56:55.572  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 1.126 seconds (JVM running for 3606.611)
+2021-04-18 11:56:55.574  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 11:57:13.931  INFO 10472 --- [http-nio-8080-exec-4] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 11:57:13.931  INFO 10472 --- [http-nio-8080-exec-4] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 11:57:22.254  INFO 10472 --- [http-nio-8080-exec-6] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 11:57:22.254  INFO 10472 --- [http-nio-8080-exec-6] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 11:57:27.753  INFO 10472 --- [http-nio-8080-exec-3] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 11:57:27.753  INFO 10472 --- [http-nio-8080-exec-3] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 11:58:37.661  INFO 10472 --- [http-nio-8080-exec-6] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 11:58:37.662  INFO 10472 --- [http-nio-8080-exec-6] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 12:12:01.835  INFO 10472 --- [http-nio-8080-exec-8] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 12:12:01.836  INFO 10472 --- [http-nio-8080-exec-8] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 12:21:49.350  INFO 10472 --- [http-nio-8080-exec-5] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 12:21:49.350  INFO 10472 --- [http-nio-8080-exec-5] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 13:01:53.290  INFO 10472 --- [http-nio-8080-exec-6] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 13:01:53.290  INFO 10472 --- [http-nio-8080-exec-6] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 13:01:56.854  INFO 10472 --- [http-nio-8080-exec-3] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 13:01:56.855  INFO 10472 --- [http-nio-8080-exec-3] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 13:01:58.369  WARN 10472 --- [HikariPool-3 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=19m35s249ms951µs600ns).
+2021-04-18 13:26:33.789  INFO 10472 --- [Thread-28] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:26:33.791  INFO 10472 --- [Thread-28] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:26:33.792  INFO 10472 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2021-04-18 13:26:33.803  INFO 10472 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2021-04-18 13:26:34.057  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 13:26:34.057  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 13:26:34.272  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 13:26:34.288  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
+2021-04-18 13:26:34.427  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 13:26:34.428  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 13:26:34.428  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 13:26:34.441  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 13:26:34.441  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 379 ms
+2021-04-18 13:26:34.453  WARN 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [2FF792477F4C94D93F90759722021937]
+2021-04-18 13:26:34.495  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 13:26:34.503  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2021-04-18 13:26:34.520  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2021-04-18 13:26:34.520  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 13:26:34.601  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 13:26:34.601  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:26:34.613  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 13:26:34.704  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 13:26:34.777  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 13:26:34.778  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 13:26:34.778  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 13:26:34.791  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1203d253, org.springframework.security.web.context.SecurityContextPersistenceFilter@21488e7e, org.springframework.security.web.header.HeaderWriterFilter@4f63cb0e, org.springframework.security.web.csrf.CsrfFilter@6bf5f671, org.springframework.security.web.authentication.logout.LogoutFilter@3582b202, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@672088c7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@311a8123, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@607017b5, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@483bda7d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ad778b6, org.springframework.security.web.session.SessionManagementFilter@654abad8, org.springframework.security.web.access.ExceptionTranslationFilter@69cf21bd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5bba6cc1]
+2021-04-18 13:26:34.831  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:26:34.854  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 13:26:35.086  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 13:26:35.091  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 1.072 seconds (JVM running for 8988.316)
+2021-04-18 13:26:35.092  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 13:26:35.205  INFO 10472 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-18 13:26:35.207  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-18 13:26:35.208  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-18 13:26:36.697  INFO 10472 --- [Thread-33] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:26:36.698  INFO 10472 --- [Thread-33] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:26:36.699  INFO 10472 --- [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2021-04-18 13:26:36.708  INFO 10472 --- [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2021-04-18 13:26:36.966  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 13:26:36.967  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 13:26:37.130  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 13:26:37.143  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
+2021-04-18 13:26:37.231  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 13:26:37.231  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 13:26:37.232  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 13:26:37.245  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 13:26:37.245  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 276 ms
+2021-04-18 13:26:37.282  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 13:26:37.287  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2021-04-18 13:26:37.299  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2021-04-18 13:26:37.299  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 13:26:37.357  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 13:26:37.357  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:26:37.365  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 13:26:37.429  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 13:26:37.492  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 13:26:37.492  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 13:26:37.492  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 13:26:37.503  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3dd39400, org.springframework.security.web.context.SecurityContextPersistenceFilter@bfbc210, org.springframework.security.web.header.HeaderWriterFilter@4d6121df, org.springframework.security.web.csrf.CsrfFilter@5c992ee9, org.springframework.security.web.authentication.logout.LogoutFilter@3e348bc8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@552dc3aa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33777a16, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@775cda7e, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6d59cabe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@92590d1, org.springframework.security.web.session.SessionManagementFilter@1e80494f, org.springframework.security.web.access.ExceptionTranslationFilter@415f3d64, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4ccf01ba]
+2021-04-18 13:26:37.547  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:26:37.563  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 13:26:37.780  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 13:26:37.785  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 0.843 seconds (JVM running for 8991.01)
+2021-04-18 13:26:37.786  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 13:26:56.875  INFO 10472 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-18 13:26:56.875  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-18 13:26:56.877  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-04-18 13:26:57.084  INFO 10472 --- [http-nio-8080-exec-2] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 13:26:57.084  INFO 10472 --- [http-nio-8080-exec-2] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 13:27:17.380  INFO 10472 --- [http-nio-8080-exec-10] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 13:27:17.380  INFO 10472 --- [http-nio-8080-exec-10] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 13:27:21.388  INFO 10472 --- [http-nio-8080-exec-6] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 13:27:21.388  INFO 10472 --- [http-nio-8080-exec-6] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 13:27:27.663  INFO 10472 --- [http-nio-8080-exec-9] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 13:27:27.663  INFO 10472 --- [http-nio-8080-exec-9] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 13:27:39.247  WARN 10472 --- [http-nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'image' is not present]
+2021-04-18 13:30:44.205  INFO 10472 --- [Thread-38] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:30:44.207  INFO 10472 --- [Thread-38] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:30:44.208  INFO 10472 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2021-04-18 13:30:44.218  INFO 10472 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2021-04-18 13:30:44.460  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 13:30:44.460  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 13:30:44.658  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 13:30:44.673  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
+2021-04-18 13:30:44.827  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 13:30:44.828  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 13:30:44.828  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 13:30:44.844  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 13:30:44.844  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 381 ms
+2021-04-18 13:30:44.861  WARN 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [5148B5E6E6095D52F94E8FD71BC619A1]
+2021-04-18 13:30:44.893  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 13:30:44.900  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2021-04-18 13:30:44.921  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2021-04-18 13:30:44.922  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 13:30:44.999  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 13:30:45.000  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:30:45.013  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 13:30:45.116  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 13:30:45.178  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 13:30:45.178  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 13:30:45.178  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 13:30:45.190  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@66b1d425, org.springframework.security.web.context.SecurityContextPersistenceFilter@17a4548e, org.springframework.security.web.header.HeaderWriterFilter@6b61dee, org.springframework.security.web.csrf.CsrfFilter@1b89d0d, org.springframework.security.web.authentication.logout.LogoutFilter@43747f4d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@519e1d34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d9b74aa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2b74539a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3ec6515a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e2f70c3, org.springframework.security.web.session.SessionManagementFilter@52b1eb20, org.springframework.security.web.access.ExceptionTranslationFilter@57cbbfd7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@48a01ede]
+2021-04-18 13:30:45.232  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:30:45.252  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 13:30:45.472  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 13:30:45.478  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 1.045 seconds (JVM running for 9238.703)
+2021-04-18 13:30:45.480  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 13:30:47.041  INFO 10472 --- [Thread-43] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:30:47.042  INFO 10472 --- [Thread-43] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:30:47.043  INFO 10472 --- [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2021-04-18 13:30:47.049  INFO 10472 --- [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2021-04-18 13:30:47.254  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 13:30:47.255  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 13:30:47.413  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 13:30:47.426  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
+2021-04-18 13:30:47.521  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 13:30:47.522  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 13:30:47.522  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 13:30:47.535  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 13:30:47.535  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 278 ms
+2021-04-18 13:30:47.564  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 13:30:47.569  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2021-04-18 13:30:47.582  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2021-04-18 13:30:47.582  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 13:30:47.635  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 13:30:47.635  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:30:47.642  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 13:30:47.696  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 13:30:47.739  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 13:30:47.739  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 13:30:47.739  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 13:30:47.747  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2161a559, org.springframework.security.web.context.SecurityContextPersistenceFilter@5fce7e52, org.springframework.security.web.header.HeaderWriterFilter@56c0a26a, org.springframework.security.web.csrf.CsrfFilter@37b1ad35, org.springframework.security.web.authentication.logout.LogoutFilter@699a609f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@14c5c4a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1658c4ba, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4558f7e9, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@20eda5ae, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d2073b0, org.springframework.security.web.session.SessionManagementFilter@65acbfd7, org.springframework.security.web.access.ExceptionTranslationFilter@9e816ff, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@32b7df4a]
+2021-04-18 13:30:47.781  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:30:47.807  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 13:30:48.029  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 13:30:48.033  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 0.8 seconds (JVM running for 9241.257)
+2021-04-18 13:30:48.034  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 13:31:06.348  INFO 10472 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-18 13:31:06.349  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-18 13:31:06.351  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-04-18 13:31:19.151  INFO 10472 --- [http-nio-8080-exec-9] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 13:31:19.152  INFO 10472 --- [http-nio-8080-exec-9] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 13:31:25.496  WARN 10472 --- [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'category' on field 'image': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@65c3cffc]; codes [typeMismatch.category.image,typeMismatch.image,typeMismatch.java.lang.String,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [category.image,image]; arguments []; default message [image]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image': no matching editors or conversion strategy found]]
+2021-04-18 13:35:09.691  INFO 10472 --- [Thread-48] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:35:09.692  INFO 10472 --- [Thread-48] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:35:09.692  INFO 10472 --- [Thread-48] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2021-04-18 13:35:09.697  INFO 10472 --- [Thread-48] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2021-04-18 13:35:09.940  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 13:35:09.940  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 13:35:10.226  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 13:35:10.247  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 3 JPA repository interfaces.
+2021-04-18 13:35:10.393  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 13:35:10.395  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 13:35:10.395  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 13:35:10.404  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 13:35:10.404  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 457 ms
+2021-04-18 13:35:10.421  WARN 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [391311CF508B887EB9DDEA5E850FD530]
+2021-04-18 13:35:10.451  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 13:35:10.456  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2021-04-18 13:35:10.473  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2021-04-18 13:35:10.473  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 13:35:10.546  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 13:35:10.547  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:35:10.556  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 13:35:10.625  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 13:35:10.697  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 13:35:10.697  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 13:35:10.697  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 13:35:10.711  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51bbda80, org.springframework.security.web.context.SecurityContextPersistenceFilter@6c9fef88, org.springframework.security.web.header.HeaderWriterFilter@4269c94c, org.springframework.security.web.csrf.CsrfFilter@549817e4, org.springframework.security.web.authentication.logout.LogoutFilter@476f5e20, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6baf2fbe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4701adba, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4bae3fbf, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5546403b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a3e8dd2, org.springframework.security.web.session.SessionManagementFilter@782ce05e, org.springframework.security.web.access.ExceptionTranslationFilter@3623a2db, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@62d53366]
+2021-04-18 13:35:10.759  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:35:10.776  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 13:35:11.048  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 13:35:11.060  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 1.162 seconds (JVM running for 9504.286)
+2021-04-18 13:35:11.063  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 13:35:11.198  INFO 10472 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-18 13:35:11.198  INFO 10472 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-18 13:35:11.199  INFO 10472 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-18 13:36:28.167  WARN 10472 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'category' on field 'image': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@74c6c4fb]; codes [typeMismatch.category.image,typeMismatch.image,typeMismatch.java.lang.String,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [category.image,image]; arguments []; default message [image]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image': no matching editors or conversion strategy found]]
+2021-04-18 13:44:00.714  INFO 10472 --- [Thread-53] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:44:00.715  INFO 10472 --- [Thread-53] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:44:00.716  INFO 10472 --- [Thread-53] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2021-04-18 13:44:00.725  INFO 10472 --- [Thread-53] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2021-04-18 13:44:01.037  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 13:44:01.039  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 13:44:01.310  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 13:44:01.334  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 3 JPA repository interfaces.
+2021-04-18 13:44:01.494  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 13:44:01.494  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 13:44:01.495  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 13:44:01.511  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 13:44:01.511  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 467 ms
+2021-04-18 13:44:01.524  WARN 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [B618F0E2DAB2FD77812D8924207EF302]
+2021-04-18 13:44:01.549  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 13:44:01.553  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2021-04-18 13:44:01.569  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2021-04-18 13:44:01.569  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 13:44:01.626  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 13:44:01.628  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:44:01.633  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 13:44:01.703  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 13:44:01.751  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 13:44:01.751  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 13:44:01.751  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 13:44:01.759  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7cf1edb7, org.springframework.security.web.context.SecurityContextPersistenceFilter@54a44775, org.springframework.security.web.header.HeaderWriterFilter@4653910, org.springframework.security.web.csrf.CsrfFilter@2a4ee3bf, org.springframework.security.web.authentication.logout.LogoutFilter@3d474562, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c920cfd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3faace5e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@122acd02, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5eb88254, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2712636d, org.springframework.security.web.session.SessionManagementFilter@9aa0ee4, org.springframework.security.web.access.ExceptionTranslationFilter@7693aed9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4533d17d]
+2021-04-18 13:44:01.792  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:44:01.804  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 13:44:02.036  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 13:44:02.040  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 1.036 seconds (JVM running for 10035.265)
+2021-04-18 13:44:02.041  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 13:44:02.083  INFO 10472 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-18 13:44:02.084  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-18 13:44:02.085  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-18 13:44:09.390  WARN 10472 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'category' on field 'image': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@ff65a84]; codes [typeMismatch.category.image,typeMismatch.image,typeMismatch.java.lang.String,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [category.image,image]; arguments []; default message [image]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image': no matching editors or conversion strategy found]]
+2021-04-18 13:49:23.695  INFO 10472 --- [Thread-58] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:49:23.696  INFO 10472 --- [Thread-58] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:49:23.697  INFO 10472 --- [Thread-58] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2021-04-18 13:49:23.703  INFO 10472 --- [Thread-58] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2021-04-18 13:49:23.932  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 13:49:23.932  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 13:49:24.158  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 13:49:24.178  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
+2021-04-18 13:49:24.331  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 13:49:24.332  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 13:49:24.332  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 13:49:24.345  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 13:49:24.345  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 410 ms
+2021-04-18 13:49:24.362  WARN 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [98AB072FA07D61EBA15E3A1EA656D16A]
+2021-04-18 13:49:24.401  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 13:49:24.406  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2021-04-18 13:49:24.421  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2021-04-18 13:49:24.422  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 13:49:24.501  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 13:49:24.501  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:49:24.514  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 13:49:24.606  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 13:49:24.686  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 13:49:24.686  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 13:49:24.686  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 13:49:24.698  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3594946, org.springframework.security.web.context.SecurityContextPersistenceFilter@cef1042, org.springframework.security.web.header.HeaderWriterFilter@5772f76b, org.springframework.security.web.csrf.CsrfFilter@42d32a92, org.springframework.security.web.authentication.logout.LogoutFilter@26d89ec0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@50ad5a19, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c89cf44, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c00a211, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@24c65c2c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4bcf4721, org.springframework.security.web.session.SessionManagementFilter@57b3279c, org.springframework.security.web.access.ExceptionTranslationFilter@5bb160e3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ddcb05c]
+2021-04-18 13:49:24.745  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:49:24.767  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 13:49:25.018  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 13:49:25.022  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 1.113 seconds (JVM running for 10358.247)
+2021-04-18 13:49:25.023  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 13:49:26.239  INFO 10472 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-18 13:49:26.241  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-18 13:49:26.244  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-04-18 13:49:26.695  INFO 10472 --- [Thread-63] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:49:26.695  INFO 10472 --- [Thread-63] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:49:26.697  INFO 10472 --- [Thread-63] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2021-04-18 13:49:26.718  INFO 10472 --- [Thread-63] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
+2021-04-18 13:49:26.895  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 13:49:26.895  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 13:49:27.082  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 13:49:27.095  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 3 JPA repository interfaces.
+2021-04-18 13:49:27.210  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 13:49:27.210  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 13:49:27.210  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 13:49:27.223  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 13:49:27.223  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 325 ms
+2021-04-18 13:49:27.252  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 13:49:27.257  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
+2021-04-18 13:49:27.270  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
+2021-04-18 13:49:27.271  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 13:49:27.321  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 13:49:27.321  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:49:27.329  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 13:49:27.385  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 13:49:27.437  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 13:49:27.437  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 13:49:27.437  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 13:49:27.445  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30b430dd, org.springframework.security.web.context.SecurityContextPersistenceFilter@795c4239, org.springframework.security.web.header.HeaderWriterFilter@5d14385b, org.springframework.security.web.csrf.CsrfFilter@15bb518e, org.springframework.security.web.authentication.logout.LogoutFilter@6ed92bca, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1c310936, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d07bfe6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@61ad9afd, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3a01f12b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26ada4db, org.springframework.security.web.session.SessionManagementFilter@36a45242, org.springframework.security.web.access.ExceptionTranslationFilter@50969529, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2d27750d]
+2021-04-18 13:49:27.481  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:49:27.496  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 13:49:27.658  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 13:49:27.661  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 0.792 seconds (JVM running for 10360.885)
+2021-04-18 13:49:27.662  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 13:49:29.437  INFO 10472 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-18 13:49:29.438  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-18 13:49:29.439  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-18 13:49:31.408  INFO 10472 --- [http-nio-8080-exec-1] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 13:49:31.408  INFO 10472 --- [http-nio-8080-exec-1] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 13:49:36.455  WARN 10472 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'category' on field 'image': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@7d03ea2d]; codes [typeMismatch.category.image,typeMismatch.image,typeMismatch.java.lang.String,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [category.image,image]; arguments []; default message [image]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image': no matching editors or conversion strategy found]]
+2021-04-18 13:52:56.076  WARN 10472 --- [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'category' on field 'image': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@2551e331]; codes [typeMismatch.category.image,typeMismatch.image,typeMismatch.java.lang.String,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [category.image,image]; arguments []; default message [image]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image': no matching editors or conversion strategy found]]
+2021-04-18 13:55:33.015  INFO 10472 --- [Thread-68] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:55:33.016  INFO 10472 --- [Thread-68] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:55:33.017  INFO 10472 --- [Thread-68] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
+2021-04-18 13:55:33.025  INFO 10472 --- [Thread-68] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
+2021-04-18 13:55:33.187  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 13:55:33.188  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 13:55:33.400  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 13:55:33.414  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
+2021-04-18 13:55:33.537  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 13:55:33.538  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 13:55:33.538  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 13:55:33.551  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 13:55:33.551  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 359 ms
+2021-04-18 13:55:33.560  WARN 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [065B4284B009A416CA550E9A85E0A2A6]
+2021-04-18 13:55:33.584  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 13:55:33.588  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
+2021-04-18 13:55:33.602  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
+2021-04-18 13:55:33.602  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 13:55:33.649  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 13:55:33.649  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:55:33.657  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 13:55:33.714  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 13:55:33.752  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 13:55:33.752  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 13:55:33.752  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 13:55:33.760  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d4949c2, org.springframework.security.web.context.SecurityContextPersistenceFilter@8f80a23, org.springframework.security.web.header.HeaderWriterFilter@714843a2, org.springframework.security.web.csrf.CsrfFilter@14b1da1c, org.springframework.security.web.authentication.logout.LogoutFilter@6e499fd1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@70692288, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1ddfd206, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e39c74c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3b7f259d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c3e7090, org.springframework.security.web.session.SessionManagementFilter@12835355, org.springframework.security.web.access.ExceptionTranslationFilter@52a8e351, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@608032c1]
+2021-04-18 13:55:33.787  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:55:33.801  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 13:55:33.963  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 13:55:33.967  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 0.809 seconds (JVM running for 10727.192)
+2021-04-18 13:55:33.968  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 13:56:22.975  INFO 10472 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-18 13:56:22.976  INFO 10472 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-18 13:56:22.977  INFO 10472 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-18 13:56:30.991  WARN 10472 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'category' on field 'image': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@5894fa72]; codes [typeMismatch.category.image,typeMismatch.image,typeMismatch.java.lang.String,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [category.image,image]; arguments []; default message [image]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image': no matching editors or conversion strategy found]]
+2021-04-18 13:59:44.131  INFO 10472 --- [Thread-73] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:59:44.132  INFO 10472 --- [Thread-73] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:59:44.133  INFO 10472 --- [Thread-73] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
+2021-04-18 13:59:44.143  INFO 10472 --- [Thread-73] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
+2021-04-18 13:59:44.369  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 13:59:44.369  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 13:59:44.611  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 13:59:44.625  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
+2021-04-18 13:59:44.741  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 13:59:44.742  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 13:59:44.742  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 13:59:44.761  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 13:59:44.761  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 387 ms
+2021-04-18 13:59:44.772  WARN 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [55479892DDD0BA2EE6519DC9F1B68D48]
+2021-04-18 13:59:44.795  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 13:59:44.799  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
+2021-04-18 13:59:44.812  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
+2021-04-18 13:59:44.812  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 13:59:44.860  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-18 13:59:44.861  INFO 10472 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 13:59:44.868  INFO 10472 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-18 13:59:44.927  WARN 10472 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-18 13:59:44.962  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-04-18 13:59:44.963  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-04-18 13:59:44.963  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-04-18 13:59:44.970  INFO 10472 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@337c8ef8, org.springframework.security.web.context.SecurityContextPersistenceFilter@4a07d8e, org.springframework.security.web.header.HeaderWriterFilter@5e0a3ab7, org.springframework.security.web.csrf.CsrfFilter@25a65d32, org.springframework.security.web.authentication.logout.LogoutFilter@40f9fe97, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b705e43, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1ca6f6be, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13f6b81f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6fda0b6d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6dbbbc98, org.springframework.security.web.session.SessionManagementFilter@13f8ed0e, org.springframework.security.web.access.ExceptionTranslationFilter@24778d21, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5ff03d22]
+2021-04-18 13:59:45.007  INFO 10472 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-18 13:59:45.023  INFO 10472 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-18 13:59:45.194  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/ShopmeAdmin'
+2021-04-18 13:59:45.197  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Started ShopmebackendApplication in 0.856 seconds (JVM running for 10978.422)
+2021-04-18 13:59:45.198  INFO 10472 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-04-18 13:59:45.256  INFO 10472 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-18 13:59:45.257  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-18 13:59:45.257  INFO 10472 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-04-18 13:59:47.979  INFO 10472 --- [http-nio-8080-exec-4] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 13:59:47.979  INFO 10472 --- [http-nio-8080-exec-4] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 13:59:56.705  WARN 10472 --- [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'category' on field 'image': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@6e3aaf10]; codes [typeMismatch.category.image,typeMismatch.image,typeMismatch.java.lang.String,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [category.image,image]; arguments []; default message [image]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image': no matching editors or conversion strategy found]]
+2021-04-18 14:04:31.714  INFO 10472 --- [http-nio-8080-exec-3] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 14:04:31.714  INFO 10472 --- [http-nio-8080-exec-3] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 14:04:39.254  WARN 10472 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'category' on field 'image': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@c3d5f5b]; codes [typeMismatch.category.image,typeMismatch.image,typeMismatch.java.lang.String,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [category.image,image]; arguments []; default message [image]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'image': no matching editors or conversion strategy found]]
+2021-04-18 14:10:51.052 ERROR 10472 --- [http-nio-8080-exec-10] com.shopme.shopmebackend.FileUploadUtil  : Could not list directory: user-photos\26
+2021-04-18 14:12:56.603  INFO 10472 --- [http-nio-8080-exec-4] c.s.s.category.CategoryController        : Category. Sort Field : name
+2021-04-18 14:12:56.603  INFO 10472 --- [http-nio-8080-exec-4] c.s.s.category.CategoryController        : Category. Sort Order : asc
+2021-04-18 14:13:31.209  INFO 10472 --- [Thread-78] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-18 14:13:31.210  INFO 10472 --- [Thread-78] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-18 14:13:31.210  INFO 10472 --- [Thread-78] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
+2021-04-18 14:13:31.217  INFO 10472 --- [Thread-78] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
+2021-04-18 14:13:31.517  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : Starting ShopmebackendApplication using Java 1.8.0_271 on WIN-AJFB7JM1F30 with PID 10472 (C:\Users\user\Desktop\Projects in development\shopmeproject\shopmewebparent\shopmebackend\target\classes started by user in C:\Users\user\Desktop\Projects in development\shopmeproject)
+2021-04-18 14:13:31.517  INFO 10472 --- [restartedMain] c.s.s.ShopmebackendApplication           : No active profile set, falling back to default profiles: default
+2021-04-18 14:13:31.763  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-18 14:13:31.796  INFO 10472 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 3 JPA repository interfaces.
+2021-04-18 14:13:32.034  INFO 10472 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-18 14:13:32.034  INFO 10472 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-18 14:13:32.034  INFO 10472 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-18 14:13:32.058  INFO 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Initializing Spring embedded WebApplicationContext
+2021-04-18 14:13:32.059  INFO 10472 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 539 ms
+2021-04-18 14:13:32.080  WARN 10472 --- [restartedMain] o.a.c.c.C.[.[localhost].[/ShopmeAdmin]   : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [AC4C1ABE7D03EABCAE505481AEA8E19B]
+2021-04-18 14:13:32.140  INFO 10472 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-18 14:13:32.147  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Starting...
+2021-04-18 14:13:32.164  INFO 10472 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Start completed.
+2021-04-18 14:13:32.164  INFO 10472 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-18 14:13:32.238  INFO 10472 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
