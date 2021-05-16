@@ -1,4 +1,4 @@
-package com.shopme.shopmebackend.product;
+package com.shopme.common.exception;
 
 /**
  * DECRIPTION

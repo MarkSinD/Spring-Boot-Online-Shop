@@ -1,6 +1,7 @@
 package com.shopme.shopmebackend.category;
 
 import com.shopme.common.entity.Category;
+import com.shopme.common.exception.CategoryNotFoundException;
 import com.shopme.shopmebackend.FileUploadUtil;
 import com.shopme.shopmebackend.category.export.CategoryCsvExporter;
 import com.shopme.shopmebackend.category.export.CategoryExcelExporter;

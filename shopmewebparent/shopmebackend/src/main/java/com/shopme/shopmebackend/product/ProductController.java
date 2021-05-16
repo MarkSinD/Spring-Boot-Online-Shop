@@ -4,6 +4,7 @@ import com.shopme.common.entity.Brand;
 import com.shopme.common.entity.Category;
 import com.shopme.common.entity.Product;
 import com.shopme.common.entity.ProductImage;
+import com.shopme.common.exception.ProductNotFoundException;
 import com.shopme.shopmebackend.FileUploadUtil;
 import com.shopme.shopmebackend.brand.BrandService;
 import com.shopme.shopmebackend.category.CategoryController;
@@ -63,7 +64,9 @@ public class ProductController {
                              @Param("sortDir") String sortDir,
                              @Param("keyword") String keyword,
                              @Param("categoryId") Integer categoryId){
+
         Page<Product> page = productService.listByPage(pageNum, sortField, sortDir, keyword, categoryId);
+
         List<Product> listProducts = page.getContent();
 
         List<Category> listCategories = categoryService.listCategoriesUsedInForm();
@@ -93,6 +96,7 @@ public class ProductController {
 
 
         return "product/products";
+
     }
 
     @GetMapping("/new")

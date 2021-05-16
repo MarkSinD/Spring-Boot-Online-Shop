@@ -278,4 +278,12 @@ public class Product {
             return name.substring(0,70).concat("..");
         return name;
     }
+
+    @Transient
+    public float getDiscountPrise(){
+        if(discountPercent > 0){
+            return prise * ((100 - discountPercent)/100);
+        }
+        return this.prise;
+    }
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:fragment="page_head(title, remove)" th:remove="${remove}">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>[[${title}]]</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" ></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<th th:fragment="pagination_link(table, pageNumber, pageName)">
+    <a class="page-link" th:href="@{'/' + ${table} + '/page/' + ${pageNumber} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} +'&keyword='+ ${keyword != null ? keyword : ''}}">[[${pageName}]]</a>
+</th>
+
+<div th:fragment="pagination(table, title)" th:remove="tag">
+    <div class="text-center m-1" th:if="${totalItems > 0}">
+        <span> Showing [[${title}]] # [[${startCount}]] to [[${endCount}]] of [[${totalItems}]] </span>
+    </div>
+    <div class="text-center m-1" th:if="${totalItems == 0}">
+        <span> No [[${title}]] found </span>
+    </div>
+
+    <div th:if="${totalItems > 1}">
+        <nav>
+            <ul class="pagination justify-content-center flex-wrap">
+                <li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
+                    <th th:replace="fragments :: pagination_link(${table}, 1, First)"></th>
+                </li>
+                <li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
+                    <th th:replace="fragments :: pagination_link(${table}, ${currentPage - 1}, Previous)"></th>
+                </li>
+
+                <li th:class="${currentPage != i ? 'page-item' : 'page-item active' }" th:each="i : ${#numbers.sequence(1, totalPages)}">
+                    <th th:replace="fragments :: pagination_link(${table}, ${i}, ${i})"></th>
+                </li>
+
+                <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+                    <th th:replace="fragments :: pagination_link(${table}, ${currentPage + 1}, Next)"></th>
+                </li>
+
+                <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+                    <th th:replace="fragments :: pagination_link(${table}, ${totalPages}, Last)"></th>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+</body>
+</html>
