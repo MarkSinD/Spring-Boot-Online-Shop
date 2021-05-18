@@ -101,6 +101,11 @@
             &nbsp;&nbsp;
             <button type="button" class="btn btn-secondary fas fa-eraser" onclick="clearFilter()"></button>
         </form>
+
+        <div th:if="${message}" class="alert alert-success text-center">
+            [[${message}]]
+        </div>
+
     </div>
 </body>
 </html>
