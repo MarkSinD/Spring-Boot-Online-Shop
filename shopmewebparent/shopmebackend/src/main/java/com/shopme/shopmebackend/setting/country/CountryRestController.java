@@ -1,4 +1,4 @@
-package com.shopme.shopmebackend.country;
+package com.shopme.shopmebackend.setting.country;
 
 import com.shopme.common.entity.Country;
 import org.springframework.beans.factory.annotation.Autowired;

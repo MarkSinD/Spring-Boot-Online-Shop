@@ -1,4 +1,4 @@
-package com.shopme.shopmebackend.country;
+package com.shopme.shopmebackend.setting.country;
 
 import com.shopme.common.entity.Country;
 import org.junit.jupiter.api.Test;

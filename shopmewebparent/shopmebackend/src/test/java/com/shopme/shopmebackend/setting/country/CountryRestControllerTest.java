@@ -1,9 +1,10 @@
-package com.shopme.shopmebackend.country;
+package com.shopme.shopmebackend.setting.country;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shopme.common.entity.Country;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
@@ -12,13 +13,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultMatcher;
 
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -32,18 +33,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @version 1.0
  */
 @SpringBootTest
-@AutoConfigureMockMvc(addFilters = false)
-public class CountryRestControllerTests {
+@AutoConfigureMockMvc()
+public class CountryRestControllerTest {
 
     @Autowired MockMvc mockMvc;
-
     @Autowired ObjectMapper objectMapper;
-
     @Autowired CountryRepository countryRepository;
 
 
-
     @Test
+    @WithMockUser(username = "high-school@bk.ru", password = "11111111", roles = "ADMIN")
     public void testListCountries() throws Exception {
         String url = "/countries/list";
 
@@ -54,7 +53,6 @@ public class CountryRestControllerTests {
 
         String jsonResponse = result.getResponse().getContentAsString();
         Country[] countries = objectMapper.readValue(jsonResponse, Country[].class);
-
         assertThat(countries).hasSizeGreaterThan(0);
     }
 
@@ -110,7 +108,7 @@ public class CountryRestControllerTests {
 
     @Test
     public void testDeleteCountry() throws Exception {
-        Integer countryId = 4;
+        Integer countryId = 5;
         String url = "/countries/delete/" + countryId;
         mockMvc.perform(get(url)).andExpect(status().isOk());
 

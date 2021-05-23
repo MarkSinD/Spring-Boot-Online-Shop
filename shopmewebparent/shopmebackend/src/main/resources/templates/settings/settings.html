@@ -33,6 +33,9 @@
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#mailTemplates" role="tab">Mail Templates</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#payment" role="tab">Mail Templates</a>
+            </li>
         </ul>
 
         <!-- Tab panes -->
@@ -43,21 +46,33 @@
             </div>
 
 
-            <div class="tab-pane" id="countries" role="tabpanel">
-                <h2>Countries</h2>
+            <div class="tab-pane p-3" id="countries" role="tabpanel">
+                <div th:replace="settings/countries :: content"></div>
             </div>
 
 
-            <div class="tab-pane" id="states" role="tabpanel">
-                <h2>States</h2>
+            <div class="tab-pane p-3" id="states" role="tabpanel">
+                <div th:replace="settings/state :: content"></div>
             </div>
 
-            <div class="tab-pane" id="mailServer" role="tabpanel">
+            <div class="tab-pane p-3" id="mailServer" role="tabpanel">
                 <h2>Mail Server</h2>
             </div>
 
-            <div class="tab-pane" id="mailTemplates" role="tabpanel">
+            <div class="tab-pane p-3" id="mailTemplates" role="tabpanel">
                 <h2>Mail Templates</h2>
+            </div>
+
+            <div class="tab-pane p-3" id="payment" role="tabpanel">
+                <h2>Payment</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast justify-content-center" role="alert" aria-live="polite" aria-atomic="true" data-delay="3000">
+        <div role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+                <span id="toastMessage"></span>
             </div>
         </div>
     </div>
@@ -67,8 +82,13 @@
 </div>
 <script type="text/javascript">
     MAX_FILE_SIZE = 102400; // 100KB
+    contextPath = "[[@{/}]]";
+    var csrfHeaderName = "[[${_csrf.headerName}]]";
+    var csrfValue = "[[${_csrf.token}]]";
 </script>
 <script th:src="@{/js/common_form.js}"></script>
+<script th:src="@{/js/coutries_setting.js}"></script>
+<script th:src="@{/js/state_setting.js}"></script>
 
 </body>
 </html>
