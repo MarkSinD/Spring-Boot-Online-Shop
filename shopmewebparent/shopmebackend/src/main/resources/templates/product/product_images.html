@@ -25,11 +25,13 @@
                     <a name="linkRemoveExtraImage" class="btn fas fa-times-circle fa-2x icon-dark"
                        title="Remove this detail"></a>
                 </div>
+
                 <div class="m-2">
                     <img th:id="'extraThumbnail' + ${status.index}"
                          th:alt="'Extra image #' + ${status.index + 1} + ' preview'" class="img-fluid"
                          th:src="@{${productImage.imagePath}}"/>
                 </div>
+
                 <div>
                     <input type="file" name="extraImage"
                            accept="image/png, image/jpeg"/>

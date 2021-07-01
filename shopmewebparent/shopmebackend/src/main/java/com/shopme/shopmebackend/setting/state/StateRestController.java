@@ -2,8 +2,7 @@ package com.shopme.shopmebackend.setting.state;
 
 import com.shopme.common.entity.Country;
 import com.shopme.common.entity.State;
-import com.shopme.shopmebackend.setting.state.StateDTO;
-import com.shopme.shopmebackend.setting.state.StateRepository;
+import com.shopme.common.entity.StateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

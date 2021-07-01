@@ -46,13 +46,14 @@
 
 
                 <div class="tab-pane" id="description" role="tabpanel">
-                    <th:block sec:authorize="hasAnyAuthority('Salesperson')">
+                    <th:block th:if="${!#authorization.expression('hasAuthority(''Admin'')') && !#authorization.expression('hasAuthority(''Editor'')')}">
                         <div th:replace="product/product_description_read_only :: content"></div>
                     </th:block>
 
-                    <th:block sec:authorize="hasAnyAuthority('Admin', 'Editor')">
-                        <div th:replace="product/product_description :: content"></div>
+                    <th:block th:if="${#authorization.expression('hasAuthority(''Admin'')') || #authorization.expression('hasAuthority(''Editor'')')}">
+                            <div th:replace="product/product_description :: content"></div>
                     </th:block>
+
                 </div>
 
 

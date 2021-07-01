@@ -25,6 +25,7 @@ public class Country {
     @OneToMany(mappedBy = "country")
     private Set<State> states;
 
+
     public Country() {
     }
 
@@ -80,11 +81,6 @@ public class Country {
 
     @Override
     public String toString() {
-        return "Country{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", code='" + code + '\'' +
-                ", states=" + states +
-                '}';
+        return name;
     }
 }

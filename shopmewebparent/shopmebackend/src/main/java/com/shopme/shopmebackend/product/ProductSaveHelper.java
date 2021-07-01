@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -28,7 +29,6 @@ public class ProductSaveHelper {
     static void deleteExtraImagesWereRemovedOnForm(Product product) throws IOException {
         String extraImageDir = "product-images/" + product.getId() + "/extras";
         Path pathDir = Paths.get(extraImageDir);
-
 
         try{
             Files.list(pathDir).forEach(file->{

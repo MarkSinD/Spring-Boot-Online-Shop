@@ -1,4 +1,4 @@
-package com.shopme.shopmebackend.controller;
+package com.shopme.shopmebackend.user;
 
 import com.shopme.common.entity.User;
 import com.shopme.shopmebackend.FileUploadUtil;

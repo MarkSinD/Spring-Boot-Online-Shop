@@ -29,7 +29,7 @@ public class ShopmeUserDetails implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<Role> roleSet = user.getRoles();
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for( Role role: roleSet){
+        for(Role role: roleSet){
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
         return authorities;

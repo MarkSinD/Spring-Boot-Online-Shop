@@ -97,6 +97,7 @@ public class UserService {
 
     public boolean isEmailUnique(Integer id, String email){
         User userByEmail = userRepository.getUserByEmail(email);
+        System.out.println("id : " + id + ". email : " + email);
 
         if( id != null && userByEmail == null) {
             return true;

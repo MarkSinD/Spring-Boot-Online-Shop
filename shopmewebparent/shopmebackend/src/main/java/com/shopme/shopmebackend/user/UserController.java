@@ -1,4 +1,4 @@
-package com.shopme.shopmebackend.controller;
+package com.shopme.shopmebackend.user;
 
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
@@ -50,6 +50,7 @@ public class UserController {
         if(endCount > page.getTotalPages()){
             endCount = page.getTotalPages();
         }
+
 
         String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
 

@@ -13,11 +13,6 @@
         <a th:href="@{/users/export/pdf}" class="fas fa-file-pdf fa-2x icon-dark mr-2"></a>
     </div>
 
-
-    <div th:if="${message}" class="alert alert-success text-center">
-        [[${message}]]
-    </div>
-
     <div th:replace="fragments :: search_form('users')"></div>
 
     <div class="full-details">
@@ -75,9 +70,11 @@
                 <div>[[${element.fullName}]]</div>
                 <div>[[${element.roles}]]</div>
                 <div class="mt-2">
-                    <a class="fas fa-edit fa-2x icon-green" th:href="@{'/users/edit/' + ${element.id}}" title="Edit this user"></a>
+                    <a class="fas fa-edit fa-2x icon-green" th:href="@{'/users/edit/' + ${element.id}}"
+                       title="Edit this user"></a>
                     &nbsp;
-                    <a class="fas fa-trash fa-2x icon-red link-delete" th:href="@{'/users/delete/' + ${element.id}}" th:elementId="${element.id}" title="Delete this user"></a></td>
+                    <a class="fas fa-trash fa-2x icon-red link-delete" th:href="@{'/users/delete/' + ${element.id}}"
+                       th:elementId="${element.id}" title="Delete this user"></a></td>
                     &nbsp;
                     <div th:replace="fragments :: element_status('users')"></div>
                 </div>
@@ -89,7 +86,7 @@
 
 
     <div th:replace="fragments :: pagination('users', 'User')"></div>
-    <div th:replace="modal_fragments :: modal_dialog"></div>
+    <div th:replace="modal_fragments :: confirm_modal"></div>
     <div th:replace="fragments :: footer"></div>
 
 </div>

@@ -1,6 +1,4 @@
-package com.shopme.shopmebackend.setting.state;
-
-import com.shopme.common.entity.Country;
+package com.shopme.common.entity;
 
 /**
  * DECRIPTION

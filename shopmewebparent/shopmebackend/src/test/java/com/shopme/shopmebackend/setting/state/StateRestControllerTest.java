@@ -3,6 +3,7 @@ package com.shopme.shopmebackend.setting.state;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shopme.common.entity.Country;
 import com.shopme.common.entity.State;
+import com.shopme.common.entity.StateDTO;
 import com.shopme.shopmebackend.setting.country.CountryRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

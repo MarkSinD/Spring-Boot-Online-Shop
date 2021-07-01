@@ -51,7 +51,9 @@
                 <label class="col-sm-4 col-form-label">Password:</label>
                 <div class="col-sm-8">
                     <input type="password" th:field="*{password}"  class="form-control"
-                        placeholder="leave blank if you don't want to change password"  minlength="8" maxlength="20" oninput="checkPasswordMatch(document.getElementById('confirmPassword'))"
+                        placeholder="leave blank if you don't want to change password"
+                           minlength="8" maxlength="20"
+                           oninput="checkPasswordMatch(document.getElementById('confirmPassword'))"
                     />
                 </div>
             </div>

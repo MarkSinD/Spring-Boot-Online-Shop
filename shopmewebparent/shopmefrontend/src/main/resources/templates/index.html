@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-
-<head th:replace="fragments :: page_head('Admin panel', 'none')">
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: page_head('Shopme', 'none')" />
 <body>
 <div class="container-fluid">
-    <div th:replace="navigation :: header_menu"> </div>
-    <div th:replace="navigation :: search_nav"> </div>
+    <div th:replace="navigation :: header_menu"></div>
+    <div th:replace="navigation :: search_nav"></div>
     <div>
-        <h1>Shoping by Categories</h1>
+        <h1>Shopping by Categories</h1>
     </div>
 
     <div class="row">
-        <div class="col" th:each="element : ${categoryList}">
-            <img th:if="${element.image != null}" th:src="@{${element.imagePath}}" style="width: 100px"/>
+        <div class="col" th:each="cat : ${categoryList}">
+            <div><img th:src="@{${cat.imagePath}}" width="80" /></div>
             <div>
-                <a th:href="@{'/c/' + ${element.alias}}">[[${element.name}]]</a>
+                <a th:href="@{'/c/' + ${cat.alias}}">[[${cat.name}]]</a>
             </div>
         </div>
     </div>
 
-    <div th:replace="navigation :: footer_menu"> </div>
+    <div th:replace="navigation :: footer_menu"></div>
 </div>
-
-
-
 </body>
 </html>

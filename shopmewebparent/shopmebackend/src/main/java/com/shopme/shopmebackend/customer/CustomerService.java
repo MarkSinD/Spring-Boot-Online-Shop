@@ -1,7 +1,9 @@
-package com.shopme.shopmebackend.user;
+package com.shopme.shopmebackend.customer;
 
+import com.shopme.common.entity.Customer;
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
+import com.shopme.shopmebackend.user.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,7 +15,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 /**
  * DECRIPTION
@@ -23,116 +24,108 @@ import java.util.Optional;
  */
 @Service
 @Transactional
-public class UserService {
-    public static final int USERS_PER_PAGE = 4;
+public class CustomerService {
+    public static final int CUSTOMER_PER_PAGE = 4;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private RoleRepository roleRepository;
+    private CustomerRepository customerRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public User getUserByEmail(String email){
-        return userRepository.getUserByEmail(email);
+    public Customer getCustomerByEmail(String email){
+        return customerRepository.getCustomerByEmail(email);
     }
 
-    public List<User> listAllUsers(){
-        return (List<User>) userRepository.findAll(Sort.by("firstName").ascending());
+    public List<Customer> listAllCustomers(){
+        return (List<Customer>) customerRepository.findAll(Sort.by("firstName").ascending());
     }
 
-    public List<Role> listAllRoles(){
-        return (List<Role>) roleRepository.findAll();
-    }
-
-    public Page<User> listByPage(int pageNum, String sortField, String sortDir, String keyword) {
+    public Page<Customer> listByPage(int pageNum, String sortField, String sortDir, String keyword) {
         Sort sort = Sort.by(sortField);
         sort = sortDir.equals("asc") ? sort.ascending() : sort.descending();
 
-        Pageable pageable = PageRequest.of(pageNum - 1, USERS_PER_PAGE, sort);
+        Pageable pageable = PageRequest.of(pageNum - 1, CUSTOMER_PER_PAGE, sort);
 
         if(keyword != null){
-            return userRepository.findAll(keyword,pageable);
+            return customerRepository.findAll(keyword,pageable);
         }
-        return userRepository.findAll(pageable);
+        return customerRepository.findAll(pageable);
     }
 
-    public User save(User user) {
-        boolean isUpdatingUser = (user.getId() != null); // true Azer
-        if(isUpdatingUser){
-            User existingUser = userRepository.findById(user.getId()).get();
-            if(user.getPassword().isEmpty()){
-                user.setPassword(existingUser.getPassword());
+    public Customer save(Customer customer) {
+        boolean isUpdatingCustomer = (customer.getId() != null); // true Azer
+        if(isUpdatingCustomer){
+            Customer existingCustomer = customerRepository.findById(customer.getId()).get();
+            if(customer.getPassword().isEmpty()){
+                customer.setPassword(existingCustomer.getPassword());
             }
             else{
-                encodePassword(user);
+                encodePassword(customer);
             }
         }else{
-            encodePassword(user);
+            encodePassword(customer);
         }
-        return userRepository.save(user);
+        return customerRepository.save(customer);
     }
 
-    public User updateAccount(User userInForm){
-        User userInDB = userRepository.findById(userInForm.getId()).get();
-        if(!userInForm.getPassword().isEmpty()){
-            userInDB.setPassword(userInForm.getPassword());
-            encodePassword(userInDB);
+    public Customer updateAccount(Customer customer){
+        Customer customerInDB = customerRepository.findById(customer.getId()).get();
+        if(!customer.getPassword().isEmpty()){
+            customerInDB.setPassword(customer.getPassword());
+            encodePassword(customerInDB);
         }
-        if(userInForm.getPhotos() != null){
-            userInDB.setPhotos(userInForm.getPhotos());
-        }
-        userInDB.setFirstName(userInForm.getFirstName());
-        userInDB.setLastName(userInForm.getLastName());
 
-        return userRepository.save(userInDB);
+        customerInDB.setFirstName(customer.getFirstName());
+        customerInDB.setLastName(customer.getLastName());
+
+        return customerRepository.save(customerInDB);
     }
 
-    private void encodePassword(User user){
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
+    private void encodePassword(Customer customer){
+        String encodedPassword = passwordEncoder.encode(customer.getPassword());
+        customer.setPassword(encodedPassword);
     }
 
     public boolean isEmailUnique(Integer id, String email){
-        User userByEmail = userRepository.getUserByEmail(email);
+        Customer customerByEmail = customerRepository.getCustomerByEmail(email);
 
-        if( id != null && userByEmail == null) {
+        System.out.println("id : " + id + ". email : " + email);
+        if( id != null && customerByEmail == null) {
             return true;
         }
-        else if( id != null && userByEmail != null) {
-            if(!userByEmail.getId().equals(id))
+        else if( id != null && customerByEmail != null) {
+            if(!customerByEmail.getId().equals(id))
                 return false;
             else
                 return true;
         }
-        else if( id == null && userByEmail != null) {
+        else if( id == null && customerByEmail != null) {
             return false;
         }
-        else if(id == null && userByEmail == null) {
+        else if(id == null && customerByEmail == null) {
             return true;
         }
         return false;
     }
 
-    public User getUserById(Integer id) throws UserNotFoundException {
+    public Customer getCustomerById(Integer id) throws CustomerNotFoundException {
         try {
-            return userRepository.findById(id).get();
+            return customerRepository.findById(id).get();
         } catch (NoSuchElementException exception){
-            throw new UserNotFoundException("Could not find any user with ID");
+            throw new CustomerNotFoundException("Could not find any customer with ID");
         }
     }
 
-    public void delete(Integer id) throws UserNotFoundException {
-        Long countById = userRepository.countById(id);
+    public void delete(Integer id) throws CustomerNotFoundException {
+        Long countById = customerRepository.countById(id);
         if(countById == null || countById == 0){
-            throw new UserNotFoundException("Could not find any user with ID" + id);
+            throw new CustomerNotFoundException("Could not find any customer with ID" + id);
         }
-        userRepository.deleteById(id);
+        customerRepository.deleteById(id);
     }
 
-    public void updateUserEnabledStatus(Integer id, boolean enabled){
-        userRepository.updateEnabledStatus(id, enabled);
+    public void updateCustomerEnabledStatus(Integer id, boolean enabled){
+        customerRepository.updateEnabledStatus(id, enabled);
     }
 }

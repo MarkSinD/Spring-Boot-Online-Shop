@@ -7,5 +7,5 @@ package com.shopme.common.entity;
  * @version 1.0
  */
 public enum SettingCategory {
-    GENERAL, MAIL_SERVER, MAIL_TEMPLATES, CURRENCY, PAYMENT
+    GENERAL, MAIL_SERVER, MAIL_TEMPLATE, CURRENCY, PAYMENT
 }

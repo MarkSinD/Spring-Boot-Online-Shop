@@ -6,5 +6,6 @@ package com.shopme.common.entity;
  * @author Mark Sinakaev
  * @version 1.0
  */
-public class AuthenticationType {
+public enum AuthenticationType {
+    DATABASE, GOOGLE, FACEBOOK
 }

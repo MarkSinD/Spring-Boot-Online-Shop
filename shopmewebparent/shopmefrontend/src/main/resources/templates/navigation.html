@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <body>
-
 <div th:fragment="header_menu">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <a class="navbar-brand" th:href="@{/}">
@@ -23,7 +22,7 @@
                     <a class="nav-link" href="">Shipping &amp; Delivery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Login</a>
+                    <a class="nav-link" th:href="@{/login}">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/register}">Register</a>
@@ -33,22 +32,64 @@
                 </li>
             </ul>
         </div>
+
     </nav>
 </div>
 
 <div th:fragment="search_nav" class="row">
     <div class="col-md">
+
+        <th:block sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+                <input type="submit" value="Logout" />
+            </form>
+        </th:block>
+
         <nav class="navbar navbar-expand-sm bg-light">
             <div class="collapse navbar-collapse" id="searchNavbar">
                 <form class="form-inline" th:action="@{/search}" method="get">
                     <input type="search" name="keyword" class="form-control mr-sm-2"
-                           th:value="${keyword}" required placeholder="keyword"/>
-                    <input type="submit" value="search" class="btn btn-outline-info" />
+                           th:value="${keyword}"
+                           placeholder="keyword" required />
+                    <input type="submit" value="Search" class="btn btn-outline-success" />
                 </form>
+                <ul class="navbar-nav">
+                    <th:block sec:authorize="isAuthenticated()">
+                        <li class="nav-item">
+                            <b><a class="nav-link" th:href="@{/account_details}"
+                                  sec:authentication="principal.fullName"></a></b>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/address_book}">Address Book</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Questions</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Reviews</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Orders</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fas fa-shopping-cart fa-2x" th:href="@{/cart}"></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript: document.logoutForm.submit()">Logout</a>
+                        </li>
+                    </th:block>
+                </ul>
             </div>
         </nav>
     </div>
 </div>
+
 <div th:fragment="footer_menu">
     <div>
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -74,6 +115,5 @@
         <p>[[${COPYRIGHT}]]</p>
     </div>
 </div>
-
 </body>
 </html>

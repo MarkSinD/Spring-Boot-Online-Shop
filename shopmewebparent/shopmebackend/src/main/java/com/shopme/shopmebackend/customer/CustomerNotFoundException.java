@@ -1,4 +1,4 @@
-package com.shopme.shopmebackend.user;
+package com.shopme.shopmebackend.customer;
 
 /**
  * DECRIPTION
@@ -6,8 +6,8 @@ package com.shopme.shopmebackend.user;
  * @author Mark Sinakaev
  * @version 1.0
  */
-public class UserNotFoundException extends Throwable {
-    public UserNotFoundException(String s) {
+public class CustomerNotFoundException extends Throwable {
+    public CustomerNotFoundException(String s) {
         super(s);
     }
 }

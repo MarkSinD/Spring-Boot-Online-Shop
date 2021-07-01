@@ -3,106 +3,29 @@
 
 <body>
 <div th:fragment = "content" th:remove="tag">
-    <form th:action="@{/settings/save_general}" method="post" enctype="multipart/form-data">
-        <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Site Name:</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" name="SITE_NAME"
-                    th:value="${SITE_NAME}" required/>
-            </div>
-        </div>
+    <form th:action="@{/settings/save_mail_template}" method="post">
 
-        <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Copyright:</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" name="COPYRIGHT"
-                       th:value="${COPYRIGHT}" required/>
-            </div>
-        </div>
+        <div>
+            <ul class="nav nav-tabs" id="mailTemplatesTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#customerVerification" role="tab">Customer
+                        Verification</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#orderConfirmation" role="tab">Order Confirmation</a>
+                </li>
+            </ul>
 
-        <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Site Logo:</label>
-            <div class="col-sm-8">
-                <img id="thumnail" alt="Site Ligo thumbnail" th:src="@{${SITE_LOGO}}"
-                    width="150" height="70"/>
-                <input type="file" id="fileImage" name="fileImage" accept="image/png, image/jpeg"/>
-            </div>
-        </div>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active p-3" id="customerVerification" role="tabpanel">
+                    <div th:replace="settings/mail_templates/customer_verification :: content"></div>
+                </div>
 
-        <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Currency Type:</label>
-            <div class="col-sm-8">
-                <select name="CURRENCY_ID" class="form-control">
-                    <th:block th:each="currency : ${listCurrentcies}">
-                        <option th:value="${currency.id}"
-                                th:selected="(${currency.id} == ${CURRENCY_ID})">[[${currency}]]</option>
-                    </th:block>
-                </select>
-            </div>
-        </div>
+                <div class="tab-pane p-3" id="orderConfirmation" role="tabpanel">
+                    <h2>Order Confirmation Email Template</h2>
+                </div>
 
-        <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Currency Symbol Position:</label>
-            <div class="col-sm-8">
-                <select name="CURRENCY_SYMBOL_POSITION" class="form-control">
-                    <option value="Before price" th:selected="(${CURRENCY_SYMBOL_POSITION} == 'Before privce')">
-                        Before price
-                    </option>
-                    <option value="After price" th:selected="(${CURRENCY_SYMBOL_POSITION} == 'After price')">
-                        After price
-                    </option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Decimal Point Type:</label>
-            <div class="col-sm-8">
-                <select name="DECIMAL_POINT_TYPE" class="form-control">
-                    <option value="POINT" th:selected="(${DECIMAL_POINT_TYPE} == 'POINT')">
-                        Point (.)
-                    </option>
-                    <option value="COMMA" th:selected="(${DECIMAL_POINT_TYPE} == 'COMMA')">
-                        Comma (,)
-                    </option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Thousands Point Type:</label>
-            <div class="col-sm-8">
-                <select name="THOUSANDS_POINT_TYPE" class="form-control">
-                    <option value="POINT" th:selected="(${THOUSANDS_POINT_TYPE} == 'POINT')">
-                        Point (.)
-                    </option>
-                    <option value="COMMA" th:selected="(${THOUSANDS_POINT_TYPE} == 'COMMA')">
-                        Comma (,)
-                    </option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Decimal Digits:</label>
-            <div class="col-sm-8">
-                <select name="DECIMAL_DIGITS" class="form-control">
-                    <option value="0" th:selected="(${DECIMAL_DIGITS} == '0')">
-                        0
-                    </option>
-                    <option value="1" th:selected="(${DECIMAL_DIGITS} == '1')">
-                        1
-                    </option>
-                    <option value="2" th:selected="(${DECIMAL_DIGITS} == '2')">
-                        2
-                    </option>
-                    <option value="3" th:selected="(${DECIMAL_DIGITS} == '3')">
-                        3
-                    </option>
-                    <option value="4" th:selected="(${DECIMAL_DIGITS} == '4')">
-                        4
-                    </option>
-                </select>
             </div>
         </div>
 
@@ -112,7 +35,5 @@
         </div>
     </form>
 </div>
-
-
 </body>
 </html>

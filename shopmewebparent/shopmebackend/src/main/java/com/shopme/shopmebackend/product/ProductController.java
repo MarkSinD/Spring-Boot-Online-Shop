@@ -27,10 +27,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * DECRIPTION
@@ -118,11 +115,11 @@ public class ProductController {
     @PostMapping("/save")
     public String saveProduct(Product product, RedirectAttributes redirectAttributes,
                               @RequestParam(value = "fileImage", required = false) MultipartFile mainImageMultipart,
+                              @RequestParam(name = "imageIDs", required = false) String[] imageIDs,
                               @RequestParam(value = "extraImage", required = false) MultipartFile[] extraImageMultiparts,
                               @RequestParam(name = "detailIDs", required = false) String[] detailIDs,
                               @RequestParam(name = "detailNames", required = false) String[] detailNames,
                               @RequestParam(name = "detailValues", required = false) String[] detailValues,
-                              @RequestParam(name = "imageIDs", required = false) String[] imageIDs,
                               @RequestParam(name = "imageNames", required = false) String[] imageNames,
                               @AuthenticationPrincipal ShopmeUserDetails loggedUser
                               ) throws IOException {
@@ -132,11 +129,17 @@ public class ProductController {
             redirectAttributes.addFlashAttribute("message", "The product has been saved successfully");
             return "redirect:/products/";
         }
+
+
+        LOGGER.error(Arrays.toString(imageIDs));
+        LOGGER.error(Arrays.toString(detailNames));
+
+
         ProductSaveHelper.setMainImageName(mainImageMultipart, product);
         ProductSaveHelper.setExistingExtraImageNames(imageIDs, imageNames, product);
         ProductSaveHelper.setNewExtraImageNames(extraImageMultiparts, product);
         ProductSaveHelper.setProductDetails(detailIDs, detailNames, detailValues, product);
-
+        LOGGER.error(product.getDetails().toString());
         Product savedProduct = productService.save(product);
 
         ProductSaveHelper.saveUploadedImages(mainImageMultipart, extraImageMultiparts, savedProduct);

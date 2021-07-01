@@ -5,6 +5,7 @@ import com.shopme.common.entity.SettingCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @version 1.0
  */
 @Service
+@Transactional
 public class SettingService {
 
     @Autowired
@@ -23,6 +25,13 @@ public class SettingService {
 
     public List<Setting> getGeneralSettings(){
         return settingRepository.findByTwoCategories(SettingCategory.GENERAL, SettingCategory.CURRENCY);
+    }
+
+    public EmailSettingBag getEmailSettings(){
+        List<Setting> settings = settingRepository.findByCategory(SettingCategory.MAIL_SERVER);
+        settings.addAll(settingRepository.findByCategory(SettingCategory.MAIL_TEMPLATE));
+
+        return new EmailSettingBag(settings);
     }
 
 }

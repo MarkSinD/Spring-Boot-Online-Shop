@@ -56,10 +56,6 @@ public class State {
 
     @Override
     public String toString() {
-        return "State{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", country=" + country +
-                '}';
+        return name;
     }
 }

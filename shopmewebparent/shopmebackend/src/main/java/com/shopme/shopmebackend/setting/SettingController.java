@@ -89,10 +89,31 @@ public class SettingController {
     private void updateSettingValuesFromForm(HttpServletRequest request, List<Setting> listSetting){
         for(Setting setting : listSetting){
             String value = request.getParameter(setting.getKey());
+            System.out.println("Key : " + setting.getKey());
+            System.out.println("Value : " + value);
             if(value != null){
                 setting.setValue(value);
             }
         }
         serviceSetting.saveAll(listSetting);
+    }
+
+    @PostMapping("/save_mail_server")
+    public String saveMailServerSettings(HttpServletRequest request, RedirectAttributes redirectAttributes){
+        List<Setting> mailServerSettings = serviceSetting.getMailServerSettings();
+        updateSettingValuesFromForm(request, mailServerSettings);
+
+        redirectAttributes.addFlashAttribute("message", "Mail server settings have been saved");
+        return "redirect:/settings";
+    }
+
+
+    @PostMapping("/save_mail_template")
+    public String saveMailTemplateSettings(HttpServletRequest request, RedirectAttributes redirectAttributes){
+        List<Setting> mailTemplateSettings = serviceSetting.getMailTemplateSettings();
+        updateSettingValuesFromForm(request, mailTemplateSettings);
+
+        redirectAttributes.addFlashAttribute("message", "Mail template settings have been saved");
+        return "redirect:/settings";
     }
 }

@@ -1,4 +1,4 @@
-package com.shopme.shopmebackend.user;
+package com.shopme.shopmebackend.customer;
 
 import com.shopme.shopmebackend.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class UserRestController {
-    @Autowired
-    private UserService service;
+public class CustomerRestController {
 
-    @PostMapping("/users/check_email")
+    @Autowired
+    private CustomerService service;
+
+    @PostMapping("/customers/check_email")
     public String checkDulicateEmail(@Param("id") Integer id, @Param("email")String email){
         return service.isEmailUnique(id, email) ? "OK" : "Duplicated";
     }

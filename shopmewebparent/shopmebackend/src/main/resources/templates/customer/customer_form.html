@@ -3,67 +3,119 @@
 
 <head th:replace="fragments :: page_head(${pageTitle}, 'none')">
 <body>
-<div class = "container-fluid">
-    <div th:replace="navigation :: menu"> </div>
+<div class="container-fluid">
+    <div th:replace="navigation :: menu"></div>
     <div class="text-left">
-        <h2> Manage Users | [[${pageTitle}]]</h2>
+        <h2> Manage Customer | [[${pageTitle}]]</h2>
     </div>
-    <form th:action="@{/users/save}" method="post" style="max-width: 700px; margin: 0 auto"
-        enctype="multipart/form-data"
-          th:object="${user}" onsubmit="return checkEmailUnique(this);">
-        <input type="hidden" th:field="*{id}">
-        <div class="border border-secondary rounded p-3">
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">E-mail:</label>
-               <div class="col-sm-8">
-                   <label>
-                        <input type="email" class="form-control" th:field="*{email}" required minlength="8" maxlength="128" />
-                    </label>
-                </div>
-             </div>
+    <form th:action="@{/customers/save}" method="post" style="max-width: 700px; margin: 0 auto"
+          enctype="multipart/form-data"
+          th:object="${customer}" onsubmit="return checkEmailUnique(this);">
 
+        <input type="hidden" th:field="*{id}">
+
+        <div class="border border-secondary rounded p-3">
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">First Name:</label>
                 <div class="col-sm-8">
-                    <label>
-                        <input type="text" class="form-control" th:field="*{firstName}" required minlength="2" maxlength="45" />
-                    </label>
+                    <input type="text" th:field="*{firstName}" class="form-control"
+                           required="required" maxlength="45" minlength="2"/>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Last Name:</label>
                 <div class="col-sm-8">
-                    <label>
-                        <input type="text" class="form-control" th:field="*{lastName}" required minlength="2" maxlength="45" />
-                    </label>
+                    <input type="text" th:field="*{lastName}" class="form-control"
+                           required="required" maxlength="45" minlength="2"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">E-mail:</label>
+                <div class="col-sm-8">
+                    <input type="email" th:field="*{email}" class="form-control"
+                           required="required" maxlength="45" minlength="8"/>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Password:</label>
                 <div class="col-sm-8">
-                    <label>
-                        <input th:if="${user.id == null}" type="password" class="form-control" th:field="*{password}" required minlength="8" maxlength="20" />
-                        <input th:if="${user.id != null}" type="password" class="form-control" th:field="*{password}" minlength="8" maxlength="20" />
-                    </label>
+                    <input type="password" th:field="*{password}" class="form-control"
+                           maxlength="15" minlength="6"
+                           oninput="checkPasswordMatch(document.getElementById('confirmPassword'))"
+                    />
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Roles:</label>
+                <label class="col-sm-4 col-form-label">Re-type Password:</label>
                 <div class="col-sm-8">
-                    <th:block th:each="role : ${listRoles}">
-                        <label>
-                            <input type="checkbox" th:field="*{roles}"
-                                   th:text="${role.name}"
-                                   th:value="${role.id}"
-                                   class="m-2"
-                            />
-                            - <small>[[${role.description}]]</small>
-                            <br/>
-                        </label>
-                    </th:block>
+                    <input type="password" id="confirmPassword" class="form-control"
+                           maxlength="15" minlength="6"
+                           oninput="checkPasswordMatch(this)"
+                    />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Phone Number:</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{phoneNumber}" class="form-control"
+                           required="required" maxlength="15" minlength="8"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Address Line 1:</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{addressLine1}" class="form-control"
+                           required="required" maxlength="64" minlength="3"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Address Line 2:</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{addressLine2}" class="form-control"
+                           maxlength="64"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">City:</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{city}" class="form-control"
+                           maxlength="45" minlength="2"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Country:</label>
+                <div class="col-sm-8">
+                    <select class="form-control" th:field="*{country}">
+                        <th:block th:each="country : ${countryList}">
+                            <option th:value="${country.id}">[[${country.name}]]</option>
+                        </th:block>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">State/Province:</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{state}" class="form-control"
+                           maxlength="45" minlength="3" list="listStates"/>
+                    <datalist id="listStates"></datalist>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Postal Code:</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{postalCode}" class="form-control"
+                           maxlength="10" minlength="2"/>
                 </div>
             </div>
 
@@ -76,29 +128,15 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Photos:</label>
-                <div class="col-sm-8">
-                    <label>
-                        <input type="hidden" th:field="*{photos}">
-                        <input type="file" id="fileImage" name="image" accept="image/png, image/jpeg" class="mb-2"/>
-                        <img id="thumnail" alt="Photos preview" th:src="@{${user.photosImagePath}}"
-                        class="img-fluid"/>
-                    </label>
-                </div>
-            </div>
-
-            <div>
-                <input type = "submit" value="Save" class="btn btn-primary m-3">
-                <input type = "button" value="Cancel" class="btn btn-secondary" id="buttonCancel">
+            <div class="text-center">
+                <input type="submit" value="Save" class="btn btn-primary"/>
             </div>
         </div>
     </form>
 
 
+
     <div th:replace="modal_fragments :: modal_dialog"></div>
-
-
     <div th:replace="fragments :: footer"></div>
 
 </div>
@@ -106,23 +144,22 @@
 <script type="text/javascript">
     MAX_FILE_SIZE = 102400; // 100KB
     moduleURL = "[[@{/}]]";
+
     function checkEmailUnique(form) {
         url = "[[@{/users/check_email}]]";
-        userEmail = $("#email").val();
-        userId = $("#id").val();
+        customerEmail = $("#email").val();
+        customerId = $("#id").val();
         csrfValue = $("input[name='_csrf']").val();
 
-        params = {id: userId, email: userEmail, _csrf: csrfValue};
+        params = {id: customerId, email: customerEmail, _csrf: csrfValue};
 
-        $.post(url, params, function (response){
-            if(response === "OK"){
+        $.post(url, params, function (response) {
+            if (response === "OK") {
                 form.submit();
-            }
-            else if(response === "Duplicated"){
-                showWarningModal("There is another user having the email " + userEmail);
-            }
-            else{
-                showErrorModal("There is another user having the email " + userEmail);
+            } else if (response === "Duplicated") {
+                showWarningModal("There is another customer having the email " + customerEmail);
+            } else {
+                showErrorModal("There is another customer having the email " + customerEmail);
             }
         }).fail(function () {
             showModalDialog("Error", "Could not connect to the server")
@@ -130,10 +167,86 @@
         return false;
     }
 
-
-
 </script>
 <script th:src="@{/js/common_form.js}"></script>
 
+<script type="text/javascript">
+
+    contextPath = "[[@{/}]]"
+    var dropDownCountry;
+    var dataListState;
+    var fieldState;
+
+    $(document).ready(function () {
+        dropDownCountry = $("#country");
+        dataListState = $("#listStates");
+        fieldState = $("#state");
+
+
+        dropDownCountry.on("change", function () {
+            loadStatesForCountry();
+            fieldState.val("").focus();
+        });
+    });
+
+    function loadStatesForCountry() {
+        selectedCountry = $("#country option:selected");
+        countryId = selectedCountry.val();
+        url = contextPath + "states/list/" + countryId;
+
+        $.get(url, function (responseJSON) {
+            dataListState.empty();
+
+            $.each(responseJSON, function (index, state) {
+                $("<option>").val(state.name).text(state.name).appendTo(dataListState);
+            });
+
+        }).fail(function () {
+            alert('failed to connect to the server!');
+        });
+    }
+
+    function checkEmailUnique(form) {
+        url = contextPath + "customers/check_email";
+        customerId = $("#id").val();
+        customerEmail = $("#email").val();
+        csrfValue = $("input[name='_csrf']").val();
+
+        params = {id: customerId, email: customerEmail, _csrf: csrfValue};
+
+        $.post(url, params, function (response){
+            if(response === "OK"){
+                form.submit();
+            }
+            else if(response === "Duplicated"){
+                showWarningModal("There is another customer having the email " + customerEmail);
+            }
+        }).fail(function () {
+            showModalDialog("Error", "Could not connect to the server")
+        });
+        return false;
+    }
+
+    function checkPasswordMatch(confirmPassword) {
+        if (confirmPassword.value !== $("#password").val())
+            confirmPassword.setCustomValidity("Password do not match!");
+        else
+            confirmPassword.setCustomValidity("");
+    }
+
+    function showModalDialog(title, message) {
+        $("#modalTitle").text(title);
+        $("#modalBody").text(message);
+        $("#modalDialog").modal();
+    }
+
+    function showErrorModal(message) {
+        showModalDialog("Error", message);
+    }
+
+    function showWarningModal(message) {
+        showModalDialog("Warning", message);
+    }
+</script>
 </body>
 </html>

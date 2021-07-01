@@ -1,96 +1,94 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="fragments :: page_head('Users - Shopme Admin', 'none')">
+<head th:replace="fragments :: page_head('Customers - Shopme Admin', 'none')">
 </head>
 <body>
-<div class = "container-fluid">
-    <div th:replace="navigation :: menu"> </div>
+<div class="container-fluid">
+    <div th:replace="navigation :: menu"></div>
     <div class="text-left">
-        <h2> Manage Users </h2>
-        <a th:href="@{/users/new}" class="fas fa-user-plus fa-2x icon-dark mr-2"></a>
-        <a th:href="@{/users/export/csv}" class="fas fa-file-csv fa-2x icon-dark mr-2"></a>
-        <a th:href="@{/users/export/excel}" class="fas fa-file-excel fa-2x icon-dark mr-2"></a>
-        <a th:href="@{/users/export/pdf}" class="fas fa-file-pdf fa-2x icon-dark mr-2"></a>
+        <h2> Manage Customers </h2>
+        <a th:href="@{/customers/new}" class="fas fa-user-plus fa-2x icon-dark mr-2"></a>
     </div>
 
 
-    <div th:if="${message}" class="alert alert-success text-center">
-        [[${message}]]
-    </div>
-
-    <div th:replace="fragments :: search_form('users')"></div>
+    <div th:replace="fragments :: search_form('customers')"></div>
 
     <div class="full-details">
         <table class="table table-bordered table-striped table-hover table-responsive-lg">
             <thead class="thead-dark">
-                <tr>
-                    <th class="hideable-column">
-                        <div th:replace="fragments :: column_link('users', 'id', 'id', 'tag')"></div>
-                    </th>
 
-                    <th> photos</th>
+            <th  class="hideable-column">
+                <div th:replace="fragments :: column_link('customers', 'id', 'id', 'tag')"></div>
+            </th>
 
-                    <th class="hideable-column">
-                        <div th:replace="fragments :: column_link('users', 'email', 'e-mail', 'tag')"></div>
-                    </th>
+            <th th:replace="fragments :: column_link('customers', 'firstName', 'first name', 'none')"></th>
+            <th th:replace="fragments :: column_link('customers', 'lastName', 'last name', 'none')"></th>
 
-                    <th th:replace="fragments :: column_link('users', 'firstName', 'first name', 'none')"></th>
-                    <th th:replace="fragments :: column_link('users', 'lastName', 'last name', 'none')"></th>
-                    <th>roles</th>
-                    <th th:replace="fragments :: column_link('users', 'enabled', 'enable', 'none')"></th>
-                    <th>
-                    </th>
-                </tr>
+            <th>
+                <div th:replace="fragments :: column_link('customers', 'email', 'e-mail', 'tag')"></div>
+            </th>
+
+            <th class="hideable-column">
+                <div th:replace="fragments :: column_link('customers', 'city', 'city', 'tag')"></div>
+            </th>
+
+            <th class="hideable-column">
+                <div th:replace="fragments :: column_link('customers', 'state', 'state', 'tag')"></div>
+            </th>
+
+            <th th:replace="fragments :: column_link('customers', 'country', 'country', 'none')"></th>
+
+            <th th:replace="fragments :: column_link('customers', 'enabled', 'enable', 'none')"></th>
+            <th>
+            </th>
             </thead>
             <tbody>
-                <tr th:each="element : ${listUsers}">
-                    <td class="hideable-column"> [[${element.id}]] </td>
-                    <td>
-                        <div th:replace="fragments :: element_photos"></div>
-                    </td>
-                    <td class="hideable-column"> [[${element.email}]] </td>
-                    <td> [[${element.firstName}]] </td>
-                    <td> [[${element.lastName}]] </td>
-                    <td> [[${element.roles}]] </td>
-                    <td>
-                        <div th:replace="fragments :: element_status('users')"></div>
-                    </td>
-                    <td>
-                        <a class="fas fa-edit fa-2x icon-green" th:href="@{'/users/edit/' + ${element.id}}" title="Edit this user"></a>
-                        &nbsp;
-                        <a class="fas fa-trash fa-2x icon-red link-delete" th:href="@{'/users/delete/' + ${element.id}}" th:elementId="${element.id}" title="Delete this user"></a>
-                    </td>
-                </tr>
+            <tr th:each="element : ${listCustomers}">
+                <td  class="hideable-column"> [[${element.id}]]</td>
+                <td> [[${element.firstName}]]</td>
+                <td> [[${element.lastName}]]</td>
+                <td> [[${element.email}]]</td>
+                <td class="hideable-column"> [[${element.city}]]</td>
+                <td class="hideable-column"> [[${element.state}]]</td>
+                <td> [[${element.country}]]</td>
+                <td>
+                    <div th:replace="fragments :: element_status('customers')"></div>
+                </td>
+                <td>
+                    <a class="fas fa-edit fa-2x icon-green" th:href="@{'/customers/edit/' + ${element.id}}"
+                       title="Edit this customer"></a>
+                    &nbsp;
+                    <a class="fas fa-trash fa-2x icon-red link-delete" th:href="@{'/customers/delete/' + ${element.id}}"
+                       th:elementId="${element.id}" title="Delete this customer"></a>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
 
     <div class="less-details">
-        <div th:each="element : ${listUsers}" class="row m-1">
-            <div class="col-4">
-                <span th:if="${element.photos == null}" class="fas fa-portrait fa-3x icon-silver"></span>
-                <img th:if="${element.photos != null}" th:src="@{${element.photosImagePath}}" style="width: 100px"/>
-            </div>
+        <div th:each="element : ${listCustomers}" class="row m-1">
             <div class="col-8">
                 <div>[[${element.fullName}]]</div>
-                <div>[[${element.roles}]]</div>
+                <div>[[${element.country}]]</div>
+                <div>[[${element.state}]]</div>
                 <div class="mt-2">
-                    <a class="fas fa-edit fa-2x icon-green" th:href="@{'/users/edit/' + ${element.id}}"
-                       title="Edit this user"></a>
+                    <a class="fas fa-edit fa-2x icon-green" th:href="@{'/customers/edit/' + ${element.id}}"
+                       title="Edit this customer"></a>
                     &nbsp;
-                    <a class="fas fa-trash fa-2x icon-red link-delete" th:href="@{'/users/delete/' + ${element.id}}"
+                    <a class="fas fa-trash fa-2x icon-red link-delete" th:href="@{'/customers/delete/' + ${element.id}}"
                        th:elementId="${element.id}" title="Delete this user"></a></td>
                     &nbsp;
-                    <div th:replace="fragments :: element_status('users')"></div>
+                    <div th:replace="fragments :: element_status('customers')"></div>
                 </div>
+                <hr>
             </div>
             <div>&nbsp;</div>
         </div>
     </div>
 
 
-
-    <div th:replace="fragments :: pagination('users', 'User')"></div>
+    <div th:replace="fragments :: pagination('customers', 'User')"></div>
     <div th:replace="modal_fragments :: confirm_modal"></div>
     <div th:replace="fragments :: footer"></div>
 
@@ -98,12 +96,12 @@
 
 <script th:src="@{/js/common_list.js}"></script>
 <script type="text/javascript">
-    moduleURL = "[[@{/users}]]";
+    moduleURL = "[[@{/customers}]]";
     $(document).ready(function () {
         $(".link-delete").on("click", function (e) {
             e.preventDefault();
             link = $(this);
-            showDeleteConfirmModal( $(this), 'user');
+            showDeleteConfirmModal($(this), 'customer');
         });
     });
 </script>

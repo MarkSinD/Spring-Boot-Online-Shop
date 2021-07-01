@@ -1,13 +1,10 @@
-package com.shopme.shopmebackend.customer;
+package com.shopme.common.shopmefrontend.customer;
 
+import com.shopme.common.entity.AuthenticationType;
 import com.shopme.common.entity.Customer;
-import com.shopme.common.entity.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -25,7 +22,12 @@ public interface CustomerRepository extends PagingAndSortingRepository<Customer,
     @Query("SELECT c FROM Customer c WHERE c.verificationCode = ?1")
     Customer findByVerificationCode(String code);
 
-    @Query("UPDATE Customer c SET c.enabled = true WHERE c.id = ?1")
+    @Query("UPDATE Customer c SET c.enabled = true, c.verificationCode = null WHERE c.id = ?1")
     @Modifying
     void enable(Integer id);
+
+    @Query("UPDATE Customer c SET c.authenticationType = ?2 WHERE c.id = ?1")
+    @Modifying
+    void updateAuthenticationType(Integer customerId, AuthenticationType type);
+
 }
