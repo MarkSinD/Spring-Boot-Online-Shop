@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="fragments :: page_head('Admin panel', 'none')">
+</head>
+<body>
+<div class="container-fluid">
+    <div th:replace="navigation :: header_menu"> </div>
+    <div th:replace="navigation :: search_nav"> </div>
+    <div>
+        <h1>Shoping by Categories</h1>
+    </div>
+
+    <div class="row">
+        <div class="col" th:each="element : ${categoryList}">
+            <img th:if="${element.image != null}" th:src="@{${element.imagePath}}" style="width: 100px"/>
+            <div>
+                <a th:href="@{'/c/' + ${element.alias}}">[[${element.name}]]</a>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="navigation :: footer_menu"> </div>
+</div>
+
+
+
+</body>
+</html>
